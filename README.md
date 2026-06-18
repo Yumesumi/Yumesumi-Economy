@@ -1,25 +1,72 @@
+# 💰 Yumesumi Economy
 
-Installation information
-=======
+一个轻量级的 Minecraft 经济系统模组，为你的冒险之旅增添财富的积累感！
 
-This template repository can be directly cloned to get you started with a new
-mod. Simply create a new repository cloned from this one, by following the
-instructions provided by [GitHub](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template).
+## ✨ 特性
 
-Once you have your clone, simply open the repository in the IDE of your choice. The usual recommendation for an IDE is either IntelliJ IDEA or Eclipse.
+### 🪙 四种货币
 
-If at any point you are missing libraries in your IDE, or you've run into problems you can
-run `gradlew --refresh-dependencies` to refresh the local cache. `gradlew clean` to reset everything 
-{this does not affect your code} and then start the process again.
+| 货币 | 稀有度 | 默认掉落率 | 掉落数量 | 特殊效果 |
+|:---:|:---:|:---:|:---:|:---:|
+| 铜币 | ⚪ 普通 | 94.9% | 1-2 | — |
+| 银币 | 🟢 非普通 | 5% | 1 | — |
+| 金币 | 🔵 稀有 | 0.1% | 1 | — |
+| 钻石币 | 🟣 史诗 | 0% (默认关闭) | 1 | ✨ 闪烁特效 + 🔥 防火 |
 
-Mapping Names:
-============
-By default, the MDK is configured to use the official mapping names from Mojang for methods and fields 
-in the Minecraft codebase. These names are covered by a specific license. All modders should be aware of this
-license. For the latest license text, refer to the mapping file itself, or the reference copy here:
-https://github.com/NeoForged/NeoForm/blob/main/Mojang.md
+### ⚔️ 击杀怪物掉落
 
-Additional Resources: 
-==========
-Community Documentation: https://docs.neoforged.net/  
-NeoForged Discord: https://discord.neoforged.net/
+击杀任意怪物都有概率掉落硬币，每种硬币独立判定，支持同时掉落多种货币。
+
+### 🔄 货币兑换
+
+无需工作台，手持硬币即可随时兑换：
+
+- **右键** — 合成（8 低级 → 1 高级）
+- **Shift + 右键** — 分解（1 高级 → 8 低级）
+
+兑换链：`铜币 ↔ 银币 ↔ 金币 ↔ 钻石币`
+
+### ⚙️ 高度可配置
+
+所有参数均可通过配置文件调整，包括：
+
+- 全局开关：启用/禁用怪物掉落
+- 每种货币的掉落概率（0-100%）
+- 每种货币的最小/最大掉落数量
+
+配置文件路径：`.minecraft/config/yumesumi_eco-common.toml`
+
+## 📦 环境要求
+
+| 依赖 | 版本 |
+|:---:|:---:|
+| Minecraft | 1.21.1 |
+| NeoForge | 21.1.220+ |
+
+## 🚀 安装
+
+1. 安装 [NeoForge](https://neoforged.net/) 加载器
+2. 下载最新版本的模组 jar 文件
+3. 将文件放入 `.minecraft/mods/` 目录
+4. 启动游戏，开始赚钱！
+
+## 🔧 开发
+
+```bash
+# 克隆仓库
+git clone https://github.com/Yumesumi/Yumesumi-Economy.git
+cd Yumesumi-Economy
+
+# 刷新依赖
+./gradlew --refresh-dependencies
+
+# 构建模组
+./gradlew build
+
+# 启动开发客户端
+./gradlew runClient
+```
+
+## 📜 许可证
+
+All Rights Reserved
