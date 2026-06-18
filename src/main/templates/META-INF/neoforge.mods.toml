@@ -1,0 +1,32 @@
+modLoader="javafml"
+loaderVersion="[2,)"
+license="All rights reserved"
+
+[[mods]]
+modId="yumesumi_eco"
+version="1.0.0"
+displayName="梦澄经济 (Yumesumi Economy)"
+license="All Rights Reserved"
+logoFile="icon.png"
+authors="Yumesumi Arikki"
+description='''
+一个简单的硬币模组，包含铜、银、金、钻石四种硬币，击杀怪物会掉落。可以通过修编辑配置文件调整设置。
+Adds Copper, Silver, Gold, and Diamond coins as mob drops. Edit the configuration file to customize settings.
+'''
+
+[[mixins]]
+config="yumesumi_eco.mixins.json"
+
+[[dependencies.yumesumi_eco]]
+modId="neoforge"
+type="required"
+versionRange="[21,)"
+ordering="NONE"
+side="BOTH"
+
+[[dependencies.yumesumi_eco]]
+modId="minecraft"
+type="required"
+versionRange="[1.21,1.22)"
+ordering="NONE"
+side="BOTH"

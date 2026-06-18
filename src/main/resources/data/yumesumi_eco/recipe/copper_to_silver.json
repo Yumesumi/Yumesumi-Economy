@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    { "item": "yumesumi_eco:copper_coin" },
+    { "item": "yumesumi_eco:copper_coin" },
+    { "item": "yumesumi_eco:copper_coin" },
+    { "item": "yumesumi_eco:copper_coin" },
+    { "item": "yumesumi_eco:copper_coin" },
+    { "item": "yumesumi_eco:copper_coin" },
+    { "item": "yumesumi_eco:copper_coin" },
+    { "item": "yumesumi_eco:copper_coin" }
+  ],
+  "result": {
+    "id": "yumesumi_eco:silver_coin",
+    "count": 1
+  }
+}
