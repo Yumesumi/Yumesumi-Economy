@@ -1,27 +1,43 @@
 package com.yumesumi.yumeeco;
 
+import java.util.List;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Rarity;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
-public class ModItems {
-    public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(yumesumieconomy.MODID);
+public final class ModItems {
+    public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(YumesumiEconomy.MOD_ID);
 
-    // 基础硬币
-    public static final DeferredItem<Item> COPPER_COIN = ITEMS.registerSimpleItem("copper_coin", props(Rarity.COMMON));
-    public static final DeferredItem<Item> SILVER_COIN = ITEMS.registerSimpleItem("silver_coin", props(Rarity.UNCOMMON));
-    public static final DeferredItem<Item> GOLD_COIN = ITEMS.registerSimpleItem("gold_coin", props(Rarity.RARE));
-
-    // 特殊钻石币：闪烁 + 防火
-    public static final DeferredItem<Item> DIAMOND_COIN = ITEMS.register("diamond_coin",
-            () -> new Item(props(Rarity.EPIC).fireResistant()) {
+    public static final DeferredItem<Item> COPPER_COIN = registerCoin("copper_coin", Rarity.COMMON);
+    public static final DeferredItem<Item> SILVER_COIN = registerCoin("silver_coin", Rarity.UNCOMMON);
+    public static final DeferredItem<Item> GOLD_COIN = registerCoin("gold_coin", Rarity.RARE);
+    public static final DeferredItem<Item> DIAMOND_COIN = ITEMS.register(
+            "diamond_coin",
+            () -> new Item(coinProperties(Rarity.EPIC).fireResistant()) {
                 @Override
-                public boolean isFoil(ItemStack stack) { return true; }
-            });
+                public boolean isFoil(ItemStack stack) {
+                    return true;
+                }
+            }
+    );
 
-    private static Item.Properties props(Rarity rarity) {
+    public static final List<DeferredItem<Item>> COINS = List.of(
+            COPPER_COIN,
+            SILVER_COIN,
+            GOLD_COIN,
+            DIAMOND_COIN
+    );
+
+    private ModItems() {
+    }
+
+    private static DeferredItem<Item> registerCoin(String name, Rarity rarity) {
+        return ITEMS.registerSimpleItem(name, coinProperties(rarity));
+    }
+
+    private static Item.Properties coinProperties(Rarity rarity) {
         return new Item.Properties().rarity(rarity).stacksTo(64);
     }
 }

@@ -2,6 +2,7 @@
 .gradle/
 build/
 !gradle/wrapper/gradle-wrapper.jar
+src/generated/resources/
 
 # IDE
 .idea/
@@ -18,3 +19,6 @@ Thumbs.db
 # Java
 *.class
 hs_err_pid*
+
+# Minecraft development runtime
+run/

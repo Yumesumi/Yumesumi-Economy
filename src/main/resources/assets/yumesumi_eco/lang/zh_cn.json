@@ -1,8 +1,7 @@
 {
+  "itemGroup.yumesumi_eco": "梦澄经济",
   "item.yumesumi_eco.copper_coin": "铜币",
   "item.yumesumi_eco.silver_coin": "银币",
   "item.yumesumi_eco.gold_coin": "金币",
-  "item.yumesumi_eco.diamond_coin": "钻石币",
-
-  "itemGroup.yumesumi_eco": "梦澄经济"
+  "item.yumesumi_eco.diamond_coin": "钻石币"
 }

@@ -12,7 +12,6 @@ base {
     archivesName = mod_id
 }
 
-// 针对 1.21.1 目标 Java 21
 java.toolchain.languageVersion = JavaLanguageVersion.of(21)
 
 neoForge {
@@ -37,7 +36,12 @@ neoForge {
 
         data {
             data()
-            programArguments.addAll '--mod', project.mod_id, '--all', '--output', file('src/generated/resources/').getAbsolutePath(), '--existing', file('src/main/resources/').getAbsolutePath()
+            programArguments.addAll(
+                    '--mod', project.mod_id,
+                    '--all',
+                    '--output', file('src/generated/resources/').getAbsolutePath(),
+                    '--existing', file('src/main/resources/').getAbsolutePath()
+            )
         }
 
         configureEach {
@@ -55,29 +59,25 @@ neoForge {
 
 sourceSets.main.resources {
     srcDir('src/generated/resources')
-    exclude("**/*.bbmodel")
+    exclude('**/*.bbmodel')
 }
 
-dependencies {
-    // 如果未来有依赖（如 JEI），在这里添加
-}
+def modMetadataProperties = [
+        minecraft_version      : minecraft_version,
+        minecraft_version_range: minecraft_version_range,
+        neo_version            : neo_version,
+        loader_version_range   : loader_version_range,
+        mod_id                 : mod_id,
+        mod_name               : mod_name,
+        mod_license            : mod_license,
+        mod_version            : mod_version,
+]
 
-// 自动填充模组元数据（针对 src/main/templates 里的 mods.toml）
-var generateModMetadata = tasks.register("generateModMetadata", ProcessResources) {
-    var replaceProperties = [
-            minecraft_version      : minecraft_version,
-            minecraft_version_range: minecraft_version_range,
-            neo_version            : neo_version,
-            loader_version_range   : loader_version_range,
-            mod_id                 : mod_id,
-            mod_name               : mod_name,
-            mod_license            : mod_license,
-            mod_version            : mod_version,
-    ]
-    inputs.properties replaceProperties
-    expand replaceProperties
-    from "src/main/templates"
-    into "build/generated/sources/modMetadata"
+def generateModMetadata = tasks.register('generateModMetadata', ProcessResources) {
+    inputs.properties modMetadataProperties
+    expand modMetadataProperties
+    from 'src/main/templates'
+    into layout.buildDirectory.dir('generated/sources/modMetadata')
 }
 
 sourceSets.main.resources.srcDir generateModMetadata

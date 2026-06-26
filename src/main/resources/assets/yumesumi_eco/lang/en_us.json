@@ -1,20 +1,7 @@
 {
-  "itemGroup.yumesumi_eco": "Example Mod Tab",
-  "block.yumesumi_eco.example_block": "Example Block",
-  "item.yumesumi_eco.example_item": "Example Item",
-
-  "yumesumi_eco.configuration.title": "Yumesumi Economy Configs",
-  "yumesumi_eco.configuration.section.yumesumi_eco.common.toml": "Yumesumi Economy Configs",
-  "yumesumi_eco.configuration.section.yumesumi_eco.common.toml.title": "Yumesumi Economy Configs",
-  "yumesumi_eco.configuration.items": "Item List",
-  "yumesumi_eco.configuration.logDirtBlock": "Log Dirt Block",
-  "yumesumi_eco.configuration.magicNumberIntroduction": "Magic Number Text",
-  "yumesumi_eco.configuration.magicNumber": "Magic Number",
-
+  "itemGroup.yumesumi_eco": "Yumesumi Economy",
   "item.yumesumi_eco.copper_coin": "Copper Coin",
   "item.yumesumi_eco.silver_coin": "Silver Coin",
   "item.yumesumi_eco.gold_coin": "Gold Coin",
-  "item.yumesumi_eco.diamond_coin": "Diamond Coin",
-
-  "itemGroup.yumesumi_eco": "Yumesumi Economy"
+  "item.yumesumi_eco.diamond_coin": "Diamond Coin"
 }

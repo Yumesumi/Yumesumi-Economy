@@ -1,32 +1,32 @@
 modLoader="javafml"
-loaderVersion="[2,)"
-license="All rights reserved"
+loaderVersion="${loader_version_range}"
+license="${mod_license}"
 
 [[mods]]
-modId="yumesumi_eco"
-version="1.0.0"
-displayName="梦澄经济 (Yumesumi Economy)"
-license="All Rights Reserved"
+modId="${mod_id}"
+version="${mod_version}"
+displayName="${mod_name}"
 logoFile="icon.png"
 authors="Yumesumi Arikki"
-description='''
-一个简单的硬币模组，包含铜、银、金、钻石四种硬币，击杀怪物会掉落。可以通过修编辑配置文件调整设置。
-Adds Copper, Silver, Gold, and Diamond coins as mob drops. Edit the configuration file to customize settings.
+description='''Adds four stackable Yumesumi coins as configurable monster drops.
+
+Copper, Silver, Gold, and Diamond Coins can be exchanged at an 8:1 rate through crafting recipes or by right-clicking while held. Sneak-right-click decomposes coins back down the same chain.
+
+添加铜币、银币、金币、钻石币四种可堆叠梦澄币，可作为可配置的怪物掉落。
+
+梦澄币支持通过合成表或手持右键按 8:1 向上兑换，潜行右键可沿同一兑换链向下分解。
 '''
 
-[[mixins]]
-config="yumesumi_eco.mixins.json"
-
-[[dependencies.yumesumi_eco]]
+[[dependencies.${mod_id}]]
 modId="neoforge"
 type="required"
-versionRange="[21,)"
+versionRange="[${neo_version},)"
 ordering="NONE"
 side="BOTH"
 
-[[dependencies.yumesumi_eco]]
+[[dependencies.${mod_id}]]
 modId="minecraft"
 type="required"
-versionRange="[1.21,1.22)"
+versionRange="${minecraft_version_range}"
 ordering="NONE"
 side="BOTH"
